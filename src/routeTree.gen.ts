@@ -10,33 +10,153 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExpensesRouteImport } from './routes/expenses'
+import { Route as FamiliesRouteImport } from './routes/families'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as LogoutRouteImport } from './routes/logout'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as PeopleRouteImport } from './routes/people'
+import { Route as TripsRouteImport } from './routes/trips'
+import { Route as ExpensesAddRouteImport } from './routes/expenses.add'
+import { Route as DirectloginNumberPassRouteImport } from './routes/directlogin.$number.$pass'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExpensesRoute = ExpensesRouteImport.update({
+  id: '/expenses',
+  path: '/expenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamiliesRoute = FamiliesRouteImport.update({
+  id: '/families',
+  path: '/families',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogoutRoute = LogoutRouteImport.update({
+  id: '/logout',
+  path: '/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PeopleRoute = PeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TripsRoute = TripsRouteImport.update({
+  id: '/trips',
+  path: '/trips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpensesAddRoute = ExpensesAddRouteImport.update({
+  id: '/add',
+  path: '/add',
+  getParentRoute: () => ExpensesRoute,
+} as any)
+const DirectloginNumberPassRoute = DirectloginNumberPassRouteImport.update({
+  id: '/directlogin/$number/$pass',
+  path: '/directlogin/$number/$pass',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/expenses': typeof ExpensesRouteWithChildren
+  '/families': typeof FamiliesRoute
+  '/home': typeof HomeRoute
+  '/logout': typeof LogoutRoute
+  '/more': typeof MoreRoute
+  '/people': typeof PeopleRoute
+  '/trips': typeof TripsRoute
+  '/expenses/add': typeof ExpensesAddRoute
+  '/directlogin/$number/$pass': typeof DirectloginNumberPassRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/expenses': typeof ExpensesRouteWithChildren
+  '/families': typeof FamiliesRoute
+  '/home': typeof HomeRoute
+  '/logout': typeof LogoutRoute
+  '/more': typeof MoreRoute
+  '/people': typeof PeopleRoute
+  '/trips': typeof TripsRoute
+  '/expenses/add': typeof ExpensesAddRoute
+  '/directlogin/$number/$pass': typeof DirectloginNumberPassRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/expenses': typeof ExpensesRouteWithChildren
+  '/families': typeof FamiliesRoute
+  '/home': typeof HomeRoute
+  '/logout': typeof LogoutRoute
+  '/more': typeof MoreRoute
+  '/people': typeof PeopleRoute
+  '/trips': typeof TripsRoute
+  '/expenses/add': typeof ExpensesAddRoute
+  '/directlogin/$number/$pass': typeof DirectloginNumberPassRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/expenses'
+    | '/families'
+    | '/home'
+    | '/logout'
+    | '/more'
+    | '/people'
+    | '/trips'
+    | '/expenses/add'
+    | '/directlogin/$number/$pass'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/expenses'
+    | '/families'
+    | '/home'
+    | '/logout'
+    | '/more'
+    | '/people'
+    | '/trips'
+    | '/expenses/add'
+    | '/directlogin/$number/$pass'
+  id:
+    | '__root__'
+    | '/'
+    | '/expenses'
+    | '/families'
+    | '/home'
+    | '/logout'
+    | '/more'
+    | '/people'
+    | '/trips'
+    | '/expenses/add'
+    | '/directlogin/$number/$pass'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExpensesRoute: typeof ExpensesRouteWithChildren
+  FamiliesRoute: typeof FamiliesRoute
+  HomeRoute: typeof HomeRoute
+  LogoutRoute: typeof LogoutRoute
+  MoreRoute: typeof MoreRoute
+  PeopleRoute: typeof PeopleRoute
+  TripsRoute: typeof TripsRoute
+  DirectloginNumberPassRoute: typeof DirectloginNumberPassRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +168,94 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/expenses': {
+      id: '/expenses'
+      path: '/expenses'
+      fullPath: '/expenses'
+      preLoaderRoute: typeof ExpensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/families': {
+      id: '/families'
+      path: '/families'
+      fullPath: '/families'
+      preLoaderRoute: typeof FamiliesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logout': {
+      id: '/logout'
+      path: '/logout'
+      fullPath: '/logout'
+      preLoaderRoute: typeof LogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/people': {
+      id: '/people'
+      path: '/people'
+      fullPath: '/people'
+      preLoaderRoute: typeof PeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trips': {
+      id: '/trips'
+      path: '/trips'
+      fullPath: '/trips'
+      preLoaderRoute: typeof TripsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expenses/add': {
+      id: '/expenses/add'
+      path: '/add'
+      fullPath: '/expenses/add'
+      preLoaderRoute: typeof ExpensesAddRouteImport
+      parentRoute: typeof ExpensesRoute
+    }
+    '/directlogin/$number/$pass': {
+      id: '/directlogin/$number/$pass'
+      path: '/directlogin/$number/$pass'
+      fullPath: '/directlogin/$number/$pass'
+      preLoaderRoute: typeof DirectloginNumberPassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface ExpensesRouteChildren {
+  ExpensesAddRoute: typeof ExpensesAddRoute
+}
+
+const ExpensesRouteChildren: ExpensesRouteChildren = {
+  ExpensesAddRoute: ExpensesAddRoute,
+}
+
+const ExpensesRouteWithChildren = ExpensesRoute._addFileChildren(
+  ExpensesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExpensesRoute: ExpensesRouteWithChildren,
+  FamiliesRoute: FamiliesRoute,
+  HomeRoute: HomeRoute,
+  LogoutRoute: LogoutRoute,
+  MoreRoute: MoreRoute,
+  PeopleRoute: PeopleRoute,
+  TripsRoute: TripsRoute,
+  DirectloginNumberPassRoute: DirectloginNumberPassRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

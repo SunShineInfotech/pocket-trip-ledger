@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:deploy": "vite build --base=/trip/build_v1/",
+    "build:upload": "vite build --config vite.static.config.ts --base=/trip/build_v1/",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

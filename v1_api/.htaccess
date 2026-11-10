@@ -1,0 +1,6 @@
+Options -Indexes
+AddDefaultCharset UTF-8
+
+<Files "config.local.php">
+  Require all denied
+</Files>

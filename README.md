@@ -24,3 +24,7 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## PHP API and database
+
+The separate MySQL schema and PHP API endpoints are in [`sql/schema.sql`](sql/schema.sql) and [`v1_api/`](v1_api/README.md). Configure a PHP/MySQL host using the steps in the API README. The current frontend still runs its included sample data in local storage; connecting the UI to the hosted API requires setting up the API URL and sign-in flow in a later integration step.

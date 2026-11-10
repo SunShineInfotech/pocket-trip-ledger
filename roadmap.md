@@ -1,0 +1,3 @@
+- [ ] Build the frontend-only trip expense experience with sample data and interactive screens.
+- [ ] Add the settlement calculator, sample coverage, and future API contract reference.
+- [ ] Verify responsive app flow, automated checks, preview build, and commit the finished work.
